@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+// environment variable
+require('dotenv').config();
+const mongoURI = process.env.MONGODB_URI;
+
 // Models
 const File = require('./models/file.model');
 const Folder = require('./models/folder.model.js');
@@ -42,7 +46,7 @@ app.post('/api/file', async (req, res)=>{
 // ++++++++++ user APIs ++++++++++
 
 
-mongoose.connect('mongodb+srv://workmyown90:MJMibhDfGzorKxyu@quilllink.glhch.mongodb.net/all-data?retryWrites=true&w=majority&appName=QuillLink')
+mongoose.connect(mongoURI)
   .then(() =>{
     console.log('Connected!');
     app.listen(3000, ()=>{
