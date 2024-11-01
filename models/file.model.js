@@ -27,7 +27,8 @@ const fileSchema = mongoose.Schema({
         default: false
     },
     "users_list":[{ 
-        type: Number 
+        type: Number,
+        default:''
     }]
 },{
     timestamps: true
