@@ -6,7 +6,6 @@ require('dotenv').config();
 const mongoURI = process.env.MONGODB_URI;
 
 // Models
-const Notebook = require('./models/notebook.model.js');
 const User = require('./models/user.model.js');
 
 // express instances
@@ -21,6 +20,9 @@ app.use("/api/files", fileRoutes);
 
 const folderRoutes = require('./routes/folder.route.js');
 app.use('/api/folders', folderRoutes);
+
+const notebookRoutes = require('./routes/notebook.route.js');
+app.use('/api/notebooks', notebookRoutes);
 
 
 app.get('/', (req, res)=>{

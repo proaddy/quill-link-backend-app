@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const notebookSchema = mongoose.Schema({
-    "type": {
-        type: String,
-        default: "notebook"
-    },
     "name": {
         type: String,
         default: "New Folder"
