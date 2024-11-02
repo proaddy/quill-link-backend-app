@@ -5,9 +5,6 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const mongoURI = process.env.MONGODB_URI;
 
-// Models
-const User = require('./models/user.model.js');
-
 // express instances
 const app = express();
 
@@ -24,6 +21,9 @@ app.use('/api/folders', folderRoutes);
 const notebookRoutes = require('./routes/notebook.route.js');
 app.use('/api/notebooks', notebookRoutes);
 
+const userRoutes = require('./routes/user.route.js');
+app.use('/api/users', userRoutes);
+
 
 app.get('/', (req, res)=>{
     console.log(req.body);
@@ -34,14 +34,7 @@ app.get('/trash', (req, res)=>{
     res.send("Hello from trash page node API");
 });
 
-
-// ++++++++++ folder APIs ++++++++++
-
-// ++++++++++ notebook APIs ++++++++++
-
-// ++++++++++ user APIs ++++++++++
-
-
+// connection to mongoose database
 mongoose.connect(mongoURI)
   .then(() =>{
     console.log('Connected!');

@@ -5,11 +5,11 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    "email": {
+    "name": {
         type: String,
         required: true
     },
-    "name": {
+    "email": {
         type: String,
         required: true
     },
@@ -19,7 +19,6 @@ const userSchema = mongoose.Schema({
     },
     "list": [{
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
         ref: "Notebook"
     }]
 }, {
