@@ -4,7 +4,7 @@ const File = require('../models/file.model.js');
 const getFile = async (req, res) => {
     try {
         const {id} = req.params;
-        console.log(req.params);
+        // console.log(req.params);
         const file = await File.findById(id);
         res.status(200).json(file);
     } catch (error) {

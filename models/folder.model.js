@@ -15,8 +15,8 @@ const folderSchema = mongoose.Schema({
         default: false
     },
     "list": [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "File"
+        _id: { type: mongoose.Schema.Types.ObjectId, required: true },
+        type: { type: String, enum: ['file', 'folder'], required: true }
     }]
 },{
     timestamps: true

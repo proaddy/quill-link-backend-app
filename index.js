@@ -6,7 +6,6 @@ require('dotenv').config();
 const mongoURI = process.env.MONGODB_URI;
 
 // Models
-const Folder = require('./models/folder.model.js');
 const Notebook = require('./models/notebook.model.js');
 const User = require('./models/user.model.js');
 
@@ -17,8 +16,11 @@ const app = express();
 app.use(express.json());
 
 // routes
-const fileRoutes = require('./routes/file.route.js')
+const fileRoutes = require('./routes/file.route.js');
 app.use("/api/files", fileRoutes); 
+
+const folderRoutes = require('./routes/folder.route.js');
+app.use('/api/folders', folderRoutes);
 
 
 app.get('/', (req, res)=>{
