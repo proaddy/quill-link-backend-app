@@ -12,7 +12,8 @@ const fileSchema = mongoose.Schema({
         default: 'New File'
     },
     "desc": {
-        type: String
+        type: String,
+        default: ''
     },
     "favourite" : {
         type: Boolean,

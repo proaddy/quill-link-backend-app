@@ -12,16 +12,16 @@ const createFolder = async (req, res) => {
 
 const getFolder = async (req, res) => {
     try {
+        const {id} = req.params;
         const folder = await Folder.findById(id);
         res.status(200).json(folder);
     } catch (error) {
-        res.status(500).josn({message: error.message});
+        res.status(500).json({message: error.message});
     }
 };
 
 const getFolders = async (req, res) => {
     try {
-        const {id} = req.params;
         const folder = await Folder.find({});
         res.status(200).json(folder);
     } catch (error) {
