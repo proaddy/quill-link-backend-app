@@ -4,7 +4,7 @@ const Folder = require('../models/folder.model');
 const createFolder = async (req, res) => {
     try {
         const folder = await Folder.create(req.body);
-        res.status(201).json({folder: folder, message: "Folder Created"})
+        res.status(201).json({folder});
     } catch (error) {
         res.status(500).json({message: error.message});
     }
@@ -36,7 +36,6 @@ const updateFolder = async (req, res) => {
         if (!folder) {
             return res.status(404).json({message: "No folder found"});
         }
-        console.log(folder);
         res.status(200).json({message: 'Folder Updated Successfully'});
     } catch (error) {
         res.status(500).json({message: error.message});

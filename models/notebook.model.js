@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const notebookSchema = mongoose.Schema({
     "name": {
         type: String,
-        default: "New Folder"
+        default: "New Notebook"
     },
     "list": [{
         type: mongoose.Schema.Types.ObjectId,

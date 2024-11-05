@@ -27,7 +27,7 @@ const createFile = async (req, res)=>{
     try {
         const file = await File.create(req.body);
         // console.log(file)
-        res.status(201).send({"file": file, message: "File made successfully"})
+        res.status(201).send({file});
     } catch (error) {
         res.status(500).send({message: error.message})
     }

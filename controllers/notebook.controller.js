@@ -23,7 +23,7 @@ const getNotebooks = async (req, res) => {
 const createNotebook = async (req, res) => {
     try {
         const notebook = await Notebook.create(req.body);
-        res.status(201).json({message: "Notebook Created Successfully"});
+        res.status(201).json({notebook});
     } catch (error) {
         res.status(500).json({message: error.message});
     }

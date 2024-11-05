@@ -15,7 +15,7 @@ router.get('/', getFolders);
 router.put('/:id', updateFolder);
 
 // add inside folder
-router.patch('/:id/add-into-list', addIntoList);
+router.patch('/:id/add-into-folder', addIntoList);
 
 // delete folder
 router.delete('/:id', deleteFolder);
