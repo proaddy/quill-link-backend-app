@@ -51,9 +51,26 @@ const addIntoNotebook = async (req, res) => {
             {new: true}
         );
         if (!notebook) {
-            return res.status(404).json({message: "No such notebook exist"})
+            return res.status(404).json({message: "No such notebook exist"});
         }
         res.status(200).json({message: "Folder added to the list"});
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+};
+
+const removeFromNotebook = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const {folderId} = req.body;
+        const notebook = await Notebook.findByIdAndUpdate(id, 
+            {$pull : { list: mongoose.Types.ObjectId.createFromHexString(folderId)}},
+            {new: true}
+        );
+        if (!notebook) {
+            return res.status(404).json({message: "No such notebook exist"});
+        }
+        res.status(200).json({message: "Folder removed from the list"});
     } catch (error) {
         res.status(500).json({message: error.message});
     }
@@ -79,5 +96,6 @@ module.exports = {
     createNotebook,
     updateNotebook,
     addIntoNotebook,
+    removeFromNotebook,
     deleteNotebook
 }
