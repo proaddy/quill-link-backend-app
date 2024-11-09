@@ -27,6 +27,9 @@ const fileSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
+    "userID" : {
+        type: String,
+    },
     "users_list":[{ 
         type: Number,
         default:''
