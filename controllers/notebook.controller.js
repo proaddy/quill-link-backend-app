@@ -64,7 +64,7 @@ const removeFromNotebook = async (req, res) => {
         const {id} = req.params;
         const {folderId} = req.body;
         const notebook = await Notebook.findByIdAndUpdate(id, 
-            {$pull : { list: mongoose.Types.ObjectId.createFromHexString(folderId)}},
+            {$pull : { list: folderId}},
             {new: true}
         );
         if (!notebook) {

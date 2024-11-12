@@ -59,6 +59,23 @@ const addIntoUser = async (req, res) => {
     }
 };
 
+const removeFromUser = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const {notebookId} = req.body;
+        const user = await User.findByIdAndUpdate(id,
+            {$push: {list: notebookId}},
+            {new: true}
+        );
+        if (!user) {
+            return res.status(404).json({message: "No such user found"})
+        }
+        res.status(200).json({message: "Notebook removed from user"});
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+}
+
 const deleteUser = async (req, res) => {
     try {
         const {id} = req.params;
@@ -79,5 +96,6 @@ module.exports = {
     createUser,
     updateUser,
     addIntoUser,
+    removeFromUser,
     deleteUser
 }

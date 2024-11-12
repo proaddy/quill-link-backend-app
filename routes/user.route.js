@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getUsers, getUser, createUser, updateUser, addIntoUser, deleteUser } = require('../controllers/user.controller.js');
+const { getUsers, getUser, createUser, updateUser, addIntoUser, deleteUser, removeFromUser } = require('../controllers/user.controller.js');
 
 // get all users
 router.get('/', getUsers);
@@ -16,6 +16,9 @@ router.put('/:id', updateUser);
 
 // add notebook in user
 router.patch('/:id/add-into-user', addIntoUser);
+
+// remove notebook from user
+router.patch('/:id/remove-from-user', removeFromUser);
 
 // delete user
 router.delete('/:id', deleteUser);
