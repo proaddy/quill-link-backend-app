@@ -15,7 +15,7 @@ app.use(express.json());
 const cors = require('cors');
 
 const corsOptions = {
-  origin: 'https://quill-link-project.netlify.app/login', // Replace with your frontend domain
+  origin: 'https://quill-link-project.netlify.app', // Replace with your frontend domain
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 };
