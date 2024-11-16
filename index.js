@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 // environment variable
 require('dotenv').config();
 const mongoURI = process.env.MONGODB_URI;
+const port = process.env.PORT || 4000;
 
 // express instances
 const app = express();
@@ -38,8 +39,8 @@ app.get('/trash', (req, res)=>{
 mongoose.connect(mongoURI)
   .then(() =>{
     console.log('Connected!');
-    app.listen(3000, ()=>{
-        console.log('Server is running on port 3000');
+    app.listen(port, ()=>{
+        console.log(`Server is running on port ${port}`);
     });
   })
   .catch(() => console.log("Connection Error"));
