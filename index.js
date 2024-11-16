@@ -12,6 +12,15 @@ const app = express();
 
 // middleware
 app.use(express.json());
+const cors = require('cors');
+
+const corsOptions = {
+  origin: 'https://quill-link-project.netlify.app/login', // Replace with your frontend domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 
 // routes
 const fileRoutes = require('./routes/file.route.js');
